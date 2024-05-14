@@ -34,7 +34,7 @@
                     echo '<div class="tuto-info">';
                     echo '<h3>' . htmlspecialchars($data[2]) . '</h3>';
                     echo '<p>' . htmlspecialchars($data[3]) . '</p>';
-                    echo '<a href="#">Accéder au tutoriel</a>';
+                    echo '<a href="pages/tutoriel.php?id=' . htmlspecialchars($data[0]) . '">Accéder au tutoriel</a>';
                     echo '<span>' . str_repeat('⭐', intval($data[4])) . '</span>';
                     echo '</div>';
                     echo '</div>';

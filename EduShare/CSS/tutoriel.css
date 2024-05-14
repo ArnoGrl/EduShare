@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f7;
+    margin: 0;
+    padding: 0;
+}
+
+.tutoriel {
+    background-color: white;
+    /* Fond blanc pour le cadre */
+    color: #4b3f72;
+    /* Couleur du texte changée pour une meilleure visibilité sur fond blanc */
+    padding: 20px;
+    /* Garde le padding pour l'espacement interne */
+    margin: 20px auto;
+    /* Ajoute un margin pour centrer le bloc et ajouter de l'espace autour */
+    width: 80%;
+    /* Limite la largeur du bloc à 80% pour ne pas occuper toute la largeur */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Ajoute une ombre douce pour un effet de profondeur */
+    border-radius: 10px;
+    /* Arrondit les coins du cadre */
+}
+
+.tutoriel h1 {
+    text-align: center;
+    /* Centre le texte horizontalement */
+    margin-top: 0;
+    /* Supprime la marge supérieure pour aligner le titre au haut du cadre si nécessaire */
+    margin-bottom: 20px;
+    /* Ajoute un peu d'espace sous le titre pour séparer du contenu suivant */
+    color: #4b3f72;
+    /* Assure que la couleur du titre est bien visible sur le fond blanc */
+}
+
+.tutoriel h2 {
+    text-align: center;
+    /* Centre le texte horizontalement */
+    margin-top: 0;
+    /* Supprime la marge supérieure pour aligner le titre au haut du cadre si nécessaire */
+    margin-bottom: 20px;
+    /* Ajoute un peu d'espace sous le titre pour séparer du contenu suivant */
+    color: #4b3f72;
+    /* Assure que la couleur du titre est bien visible sur le fond blanc */
+}
+
+.tutoriel p {
+    text-align: center;
+    /* Centre le texte horizontalement */
+    margin-top: 0;
+    /* Supprime la marge supérieure pour aligner le titre au haut du cadre si nécessaire */
+    margin-bottom: 20px;
+    /* Ajoute un peu d'espace sous le titre pour séparer du contenu suivant */
+    color: #4b3f72;
+    /* Assure que la couleur du titre est bien visible sur le fond blanc */
+}
+
+/* Style spécifique pour l'image */
+.image-1 {
+    width: 25%;
+    /* Définir la largeur à 50% du conteneur */
+    border-radius: 15px;
+    /* Bords arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    /* Ombre portée : décalage horizontal, décalage vertical, flou, couleur */
+    border: 2px solid #000;
+    /* Bordure noire autour de l'image */
+    transition: transform 0.3s ease;
+    /* Transition pour un effet de zoom au survol */
+}
+
+/* Effet de zoom au survol de l'image */
+.image-1:hover {
+    transform: scale(1.1);
+    /* Agrandit l'image de 10% lors du survol */
+}
+
+.image-2 {
+    width: 25%;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border: 2px solid #000;
+    transition: transform 0.3s ease;
+}
+
+.image-2:hover {
+    transform: scale(1.1);
+}
+
+.image-3 {
+    width: 25%;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border: 2px solid #000;
+    transition: transform 0.3s ease;
+}
+
+.image-3:hover {
+    transform: scale(1.1);
+}
+
+.image-4 {
+    width: 25%;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border: 2px solid #000;
+    transition: transform 0.3s ease;
+}
+
+.image-4:hover {
+    transform: scale(1.1);
+}
+
+.image-5 {
+    width: 25%;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border: 2px solid #000;
+    transition: transform 0.3s ease;
+}
+
+.image-5:hover {
+    transform: scale(1.1);
+}
