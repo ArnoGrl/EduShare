@@ -1,6 +1,61 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f7;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* Styles pour la barre de navigation en haut de la page */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    /* Assure que la barre de navigation reste au-dessus des autres éléments */
+}
+
+.welcome-message {
+    font-size: 1em;
+}
+
+.logout-button {
+    color: white;
+    background-color: #f44336;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    border: none;
+    /* Pour un style de bouton */
+    cursor: pointer;
+    /* Curseur de bouton */
+    font-size: 1em;
+    /* Taille de police ajustée */
+    margin-right: 30px;
+    /* Ajustez cette valeur pour décaler le bouton vers la gauche */
+}
+
+.logout-button:hover {
+    background-color: #d32f2f;
+}
+
+/* Styles pour décaler le contenu principal pour éviter le chevauchement avec la barre de navigation */
+header,
+main {
+    padding-top: 60px;
+    /* Ajuster pour correspondre à la hauteur de la barre de navigation */
+}
+
+head {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
     margin: 0;
     padding: 0;
 }

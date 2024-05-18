@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $description = htmlspecialchars($_POST['description']);
 
     $normalizedTitle = preg_replace('/[^a-zA-Z0-9]/', '_', strtolower($titre));
-    $imagesDirectory = "../images/$normalizedTitle";
+    $imagesDirectory = "../images/TUTORIEL_PICTURE/$normalizedTitle";
     if (!is_dir($imagesDirectory)) {
         mkdir($imagesDirectory, 0777, true);
     }
@@ -14,13 +14,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $imagePaths = [];
 
     // Téléchargement de l'image principale
-    $imagePrincipale = $_FILES['image_principale'];
-    $imagePrincipaleName = $normalizedTitle . '_main.' . pathinfo($imagePrincipale['name'], PATHINFO_EXTENSION);
-    $imagePrincipalePath = $imagesDirectory . '/' . $imagePrincipaleName;
-    if (move_uploaded_file($imagePrincipale['tmp_name'], $imagePrincipalePath)) {
-        $imagePaths[] = $imagePrincipalePath;
+    if (isset($_FILES['image_principale']) && $_FILES['image_principale']['error'] == UPLOAD_ERR_OK) {
+        $imagePrincipale = $_FILES['image_principale'];
+        $imagePrincipaleExtension = pathinfo($imagePrincipale['name'], PATHINFO_EXTENSION);
+        $imagePrincipaleName = $normalizedTitle . '_main.' . $imagePrincipaleExtension;
+        $imagePrincipalePath = $imagesDirectory . '/' . $imagePrincipaleName;
+
+        if (move_uploaded_file($imagePrincipale['tmp_name'], $imagePrincipalePath)) {
+            $imagePaths[] = $imagePrincipalePath;
+        } else {
+            echo "Échec du téléchargement de l'image principale.<br>";
+        }
     } else {
-        $imagePaths[] = "Failed to upload main image";
+        echo "Problème de fichier reçu : Erreur " . $_FILES['image_principale']['error'] . "<br>";
     }
 
     // Préparation des données pour l'écriture dans le fichier CSV
@@ -51,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $etape_image_tmp = $_FILES['etape_image']['tmp_name'][$i];
         $extension = pathinfo($etape_image, PATHINFO_EXTENSION);
         $etape_image_name = $normalizedTitle . '_etape_' . ($i + 1) . '.' . $extension;
-        $etape_image_path = $imagesDirectory . '/' . $etape_image_name;
+        $etape_image_path = $imagesDirectory  . '/' . $etape_image_name;
         if (move_uploaded_file($etape_image_tmp, $etape_image_path)) {
             $imagePaths[] = $etape_image_path;
             $ligne .= "$etape_titre;$etape_description;$etape_image_path;";

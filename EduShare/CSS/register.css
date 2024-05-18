@@ -1,0 +1,69 @@
+/* register.css */
+
+body {
+    background-color: #333;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+input[type="text"],
+input[type="password"] {
+    display: block;
+    margin-bottom: 30px;
+    color: white;
+    border-radius: 5px;
+    /* Arrondir les bords */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Ajouter un effet d'ombre */
+    background-color: #555;
+    /* Couleur de fond */
+    border: none;
+    /* Supprimer la bordure par défaut */
+    padding: 10px;
+    /* Ajouter un espacement interne */
+    margin: 0 auto 30px auto;
+    /* Centrer verticalement et horizontalement */
+}
+
+input[type="file"] {
+    margin-top: 10px;
+}
+
+button {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff3333;
+}
+
+p {
+    margin-top: 20px;
+    color: #aaa;
+}
+
+a {
+    color: #fff;
+}

@@ -2,6 +2,13 @@
 <html lang="fr">
 
 <head>
+    <?php
+    session_start();
+    if (!isset($_SESSION['username'])) {
+        header('Location: login.php');
+        exit;
+    }
+    ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style.css">
@@ -9,6 +16,12 @@
 </head>
 
 <body>
+    <nav class="top-nav">
+        <div class="welcome-message">
+            Bienvenue, <?php echo htmlspecialchars($_SESSION['username']); ?>!
+        </div>
+        <a href="logout.php" class="logout-button">Déconnexion</a>
+    </nav>
     <header>
         <div class="search-container">
             <input type="search" placeholder="Rechercher des tutoriels..." id="search-bar">
