@@ -17,7 +17,7 @@
             header('Content-Type: text/html; charset=UTF-8');
             include '../php/config.php';
             $tutorielId = $_GET['id'];
-            $csvFile = CSV_TUTO;
+            $csvFile = '../data/tutoriel.csv';
 
             if (!file_exists($csvFile)) {
                 echo "Le fichier CSV n'existe pas à l'emplacement spécifié.";
@@ -33,7 +33,7 @@
                             echo "<h1>" . htmlspecialchars($data[1]) . "</h1>";
                             echo "<p class='description'>" . htmlspecialchars($data[2]) . "</p>";
                             // Ignore the main image and note
-                            $numParts = (count($data) - 5) / 3;
+                            $numParts = (count($data) - 6) / 3;
                             for ($i = 0; $i < $numParts; $i++) {
                                 $index = 4 + $i * 3;
                                 $step = $i + 1;

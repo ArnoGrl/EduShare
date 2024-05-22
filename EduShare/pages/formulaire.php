@@ -14,6 +14,18 @@
         <label for="titre">Titre du tutoriel :</label>
         <input type="text" id="titre" name="titre" required>
 
+        <label for="categorie">Catégorie :</label>
+        <select id="categorie" name="categorie" required>
+            <option value="informatique">Informatique</option>
+            <option value="cuisine">Cuisine</option>
+            <option value="bricolage">Bricolage</option>
+            <!-- Ajoutez d'autres catégories selon vos besoins -->
+        </select>
+
+        <!-- Ajout d'un champ caché pour l'identifiant utilisateur -->
+        <!-- Assurez-vous que ce code PHP est enveloppé dans une session start et que l'utilisateur est connecté -->
+        <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
+
         <label for="description">Description générale :</label>
         <textarea id="description" name="description" required></textarea>
 

@@ -1,9 +1,13 @@
 <?php
-include '../php/config.php';
+include 'config.php';
+
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titre = htmlspecialchars($_POST['titre']);
     $description = htmlspecialchars($_POST['description']);
+    $categorie = htmlspecialchars($_POST['categorie']); // Nouveau
+    $userId = htmlspecialchars($_POST['user_id']); // Nouveau
 
     $normalizedTitle = preg_replace('/[^a-zA-Z0-9]/', '_', strtolower($titre));
     $imagesDirectory = "../images/TUTORIEL_PICTURE/$normalizedTitle";
@@ -34,19 +38,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ligne = "$id;$titre;$description;$imagePrincipalePath;";
 
     // Ajout de la première étape
-    $etape_titre_1 = htmlspecialchars($_POST['etape_titre'][0]);
-    $etape_description_1 = htmlspecialchars($_POST['etape_description'][0]);
-    $etape_image_1 = $_FILES['etape_image']['name'][0];
-    $etape_image_tmp_1 = $_FILES['etape_image']['tmp_name'][0];
-    $extension_1 = pathinfo($etape_image_1, PATHINFO_EXTENSION);
-    $etape_image_name_1 = $normalizedTitle . '_etape_1.' . $extension_1;
-    $etape_image_path_1 = $imagesDirectory . '/' . $etape_image_name_1;
+    if (isset($_POST['etape_titre'][0])) {
+        $etape_titre_1 = htmlspecialchars($_POST['etape_titre'][0]);
+        $etape_description_1 = htmlspecialchars($_POST['etape_description'][0]);
+        $etape_image_1 = $_FILES['etape_image']['name'][0];
+        $etape_image_tmp_1 = $_FILES['etape_image']['tmp_name'][0];
+        $extension_1 = pathinfo($etape_image_1, PATHINFO_EXTENSION);
+        $etape_image_name_1 = $normalizedTitle . '_etape_1.' . $extension_1;
+        $etape_image_path_1 = $imagesDirectory . '/' . $etape_image_name_1;
 
-    if (move_uploaded_file($etape_image_tmp_1, $etape_image_path_1)) {
-        $imagePaths[] = $etape_image_path_1;
-        $ligne .= "$etape_titre_1;$etape_description_1;$etape_image_path_1;";
-    } else {
-        $imagePaths[] = "Failed to upload step 1 image";
+        if (move_uploaded_file($etape_image_tmp_1, $etape_image_path_1)) {
+            $imagePaths[] = $etape_image_path_1;
+            $ligne .= "$etape_titre_1;$etape_description_1;$etape_image_path_1;";
+        } else {
+            $imagePaths[] = "Failed to upload step 1 image";
+        }
     }
 
     // Ajout des autres étapes
@@ -57,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $etape_image_tmp = $_FILES['etape_image']['tmp_name'][$i];
         $extension = pathinfo($etape_image, PATHINFO_EXTENSION);
         $etape_image_name = $normalizedTitle . '_etape_' . ($i + 1) . '.' . $extension;
-        $etape_image_path = $imagesDirectory  . '/' . $etape_image_name;
+        $etape_image_path = $imagesDirectory . '/' . $etape_image_name;
         if (move_uploaded_file($etape_image_tmp, $etape_image_path)) {
             $imagePaths[] = $etape_image_path;
             $ligne .= "$etape_titre;$etape_description;$etape_image_path;";
@@ -66,9 +72,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Ajout de la note initiale (0) à la fin de la ligne
-    $ligne .= "0\n";
-    $csvFile = CSV_TUTO;
+    // Ajouter la catégorie et l'user ID à la fin de la ligne CSV
+    $ligne .= "$categorie;$userId\n";
+    $csvFile = '../data/tutoriel.csv';
 
     // Écriture dans le fichier CSV
     $fichier = fopen($csvFile, "a");
@@ -77,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         fclose($fichier);
 
         // Copie des informations dans un autre fichier CSV
-        copierInformationsDansAutreCSV($id, $titre, $description, $imagePrincipalePath, $imagePaths);
+        copierInformationsDansAutreCSV($id, $titre, $description, $imagePrincipalePath, $imagePaths, $categorie, $userId);
 
         echo "<!DOCTYPE html>
         <html lang='fr'>
@@ -99,19 +105,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Méthode de requête non valide.";
 }
 
-function copierInformationsDansAutreCSV($id, $titre, $description, $imagePrincipalPath, $imagePaths)
+function copierInformationsDansAutreCSV($id, $titre, $description, $imagePrincipalPath, $imagePaths, $categorie, $userId)
 {
-    // Chemin du fichier CSV de destination
-    define('CSV_PATH', '/home/arno/Bureau/EduShare/data/OTHER_TUTORIEL.csv');
-
     // Ouvrir le fichier CSV de destination en mode écriture
-    $fichier_destination = fopen(CSV_PATH, "a");
+    $csvFile2 = '../data/vignette.csv';
+    $fichier_destination = fopen($csvFile2, "a");
 
     // Générer l'URL
     $url = "tutoriel.php?id=$id";
 
     // Écrire les informations dans le fichier CSV de destination
-    fputcsv($fichier_destination, array($id, $titre, $description, $imagePrincipalPath, 0, $url), ';');
+    fputcsv($fichier_destination, array($id, $titre, $description, $imagePrincipalPath, 0, $url, $categorie, $userId), ';');
 
     // Fermer le fichier CSV de destination
     fclose($fichier_destination);

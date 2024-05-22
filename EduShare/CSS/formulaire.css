@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #333;
+    /* Gris foncé */
     margin: 0;
     padding: 20px;
 }
@@ -13,9 +14,10 @@ h2 {
 form {
     max-width: 600px;
     margin: 0 auto;
-    padding: 20px;
-    background: #fff;
+    padding: 30px;
+    background-color: #444;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 label {
@@ -25,27 +27,47 @@ label {
 
 input[type="text"],
 textarea {
+    display: block;
+    margin-bottom: 30px;
+    color: white;
+    border-radius: 5px;
+    /* Arrondir les bords */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Ajouter un effet d'ombre */
+    background-color: #555;
+    /* Couleur de fond */
+    border: none;
+    /* Supprimer la bordure par défaut */
+    padding: 10px;
+    /* Ajouter un espacement interne */
+    margin: 0 auto 30px auto;
+    /* Centrer verticalement et horizontalement */
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    /* Assurer une largeur de 100% */
 }
 
 button,
 input[type="submit"] {
     width: 100%;
     padding: 10px;
-    background-color: #28a745;
+    background-color: #dc3545;
+    /* Rouge */
     border: none;
     border-radius: 4px;
     color: #fff;
     font-size: 16px;
     cursor: pointer;
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 button:hover,
 input[type="submit"]:hover {
-    background-color: #218838;
+    background-color: #c82333;
+    /* Rouge foncé */
+}
+
+h2,
+h1 {
+    color: #fff;
 }

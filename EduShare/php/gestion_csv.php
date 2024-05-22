@@ -1,7 +1,8 @@
 <?php
 include 'config.php';
 
-function read_csv($filename) {
+function read_csv($filename)
+{
     $data = [];
     if (($handle = fopen(CSV_PATH . $filename, "r")) !== FALSE) {
         while (($row = fgetcsv($handle, 1000, ",")) !== FALSE) {
@@ -11,4 +12,3 @@ function read_csv($filename) {
     }
     return $data;
 }
-?>

@@ -32,7 +32,7 @@
             <h2>Nos Tuto Tendance</h2>
             <?php
             // Chemin vers le fichier CSV
-            $csvFile = 'data/tutoriels.csv';
+            $csvFile = 'data/vignette.csv';
 
             // Ouverture du fichier en lecture seule
             if (($handle = fopen($csvFile, "r")) !== FALSE) {
