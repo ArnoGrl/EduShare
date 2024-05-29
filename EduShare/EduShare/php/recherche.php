@@ -48,7 +48,7 @@ if (!isset($_SESSION['username'])) {
                 $resultsFound = false;
 
                 // Boucle à travers les données du fichier CSV
-                while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+                while (($data = fgetcsv($handle, 10000000, ";")) !== FALSE) {
                     // Recherche par mot clé dans le titre du tutoriel (colonne 2 du CSV)
                     if ($query === '' || strpos(strtolower($data[1]), $query) !== FALSE) {
                         $resultsFound = true;

@@ -69,7 +69,7 @@
             // Ouverture du fichier en lecture seule
             if (($handle = fopen($csvFile, "r")) !== FALSE) {
                 // Boucle à travers les données du fichier CSV
-                while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+                while (($data = fgetcsv($handle, 1000000, ";")) !== FALSE) {
                     echo '<div class="tutoriel">';
                     // Assurez-vous que l'index des données correspond bien à votre structure CSV
                     echo '<img src="' . htmlspecialchars($data[3]) . '" alt="' . htmlspecialchars($data[1]) . '">';

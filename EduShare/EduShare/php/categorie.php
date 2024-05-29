@@ -43,7 +43,7 @@ if (!isset($_SESSION['username'])) {
                 // Ouverture du fichier en lecture seule
                 if (($handle = fopen($csvFile, "r")) !== FALSE) {
                     // Boucle à travers les données du fichier CSV
-                    while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+                    while (($data = fgetcsv($handle, 10000000, ";")) !== FALSE) {
                         // Vérifier si la catégorie correspond à la catégorie sélectionnée
                         if (strtolower(trim($data[6])) == strtolower(trim($selectedCategory))) {
                             echo '<div class="tutoriel">';
