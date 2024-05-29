@@ -9,7 +9,7 @@ Bienvenue sur le dépôt GitHub du projet EduShare, une plateforme dédiée au p
 - **Catégories** : Navigation aisée grâce aux catégories de tutoriels disponibles sur la partie gauche de l'onglet "Nos tutoriels tendance".
 - **Consultation de Tutoriels** : Accédez aux tutoriels en cliquant sur "Accéder au tutoriel".
 - **Soumission de Tutoriels** : Soumettez vos propres tutoriels via le bouton "Soumettre un tutoriel". Les images d'illustration sont obligatoires.
-- **Déconnexion** : Bouton de déconnexion disponible pour se retourner sur la page de connexion.
+- **Déconnexion** : Bouton de déconnexion disponible pour retourner sur la page de connexion.
 
 ## Prérequis
 
