@@ -24,10 +24,12 @@ Pour exécuter ce projet localement, vous aurez besoin d'un serveur PHP. Nous re
 ## Structure des fichiers
 
 - **index.php** - Page principale du site.
-- **categorie.php** - Gestion des tutoriels par catégorie.
-- **formulaire.php**, **traitement.php** - Gestion des soumissions de nouveaux tutoriels.
+- **/php/categorie.php** - Gestion des tutoriels par catégorie.
+- **/php/recherche.php** - Gestion de la bar de recherche.
+- **/php/config.php** - Définition des constantes.
+- **/pages/ formulaire.php**, **traitement.php** - Gestion des soumissions de nouveaux tutoriels.
 - **login.php**, **register.php**, **logout.php** - Gestion de l'authentification des utilisateurs.
-- **validation.js** - Scripts pour la validation côté client.
+- **/js/validation.js** - Scripts pour la validation côté client.
 - **/CSS** - Contient les fichiers CSS pour le style du site.
 - **/data** - Contient les fichiers CSV pour la gestion des données utilisateur et des tutoriels.
 - **/images** - Dossier pour les images utilisées sur le site.
