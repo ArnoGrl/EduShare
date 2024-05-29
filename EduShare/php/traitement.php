@@ -1,13 +1,11 @@
 <?php
 include 'config.php';
 
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $titre = htmlspecialchars($_POST['titre']);
-    $description = htmlspecialchars($_POST['description']);
-    $categorie = htmlspecialchars($_POST['categorie']); // Nouveau
-    $userId = htmlspecialchars($_POST['user_id']); // Nouveau
+    $titre = $_POST['titre'];
+    $description = $_POST['description'];
+    $categorie = $_POST['categorie']; // Nouveau
+    $userId = $_POST['user_id']; // Nouveau
 
     $normalizedTitle = preg_replace('/[^a-zA-Z0-9]/', '_', strtolower($titre));
     $imagesDirectory = "../images/TUTORIEL_PICTURE/$normalizedTitle";
@@ -39,8 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Ajout de la première étape
     if (isset($_POST['etape_titre'][0])) {
-        $etape_titre_1 = htmlspecialchars($_POST['etape_titre'][0]);
-        $etape_description_1 = htmlspecialchars($_POST['etape_description'][0]);
+        $etape_titre_1 = $_POST['etape_titre'][0];
+        $etape_description_1 = $_POST['etape_description'][0];
         $etape_image_1 = $_FILES['etape_image']['name'][0];
         $etape_image_tmp_1 = $_FILES['etape_image']['tmp_name'][0];
         $extension_1 = pathinfo($etape_image_1, PATHINFO_EXTENSION);
@@ -57,8 +55,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Ajout des autres étapes
     for ($i = 1; $i < count($_FILES['etape_image']['name']); $i++) {
-        $etape_titre = htmlspecialchars($_POST['etape_titre'][$i]);
-        $etape_description = htmlspecialchars($_POST['etape_description'][$i]);
+        $etape_titre = $_POST['etape_titre'][$i];
+        $etape_description = $_POST['etape_description'][$i];
         $etape_image = $_FILES['etape_image']['name'][$i];
         $etape_image_tmp = $_FILES['etape_image']['tmp_name'][$i];
         $extension = pathinfo($etape_image, PATHINFO_EXTENSION);
