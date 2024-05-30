@@ -1,69 +1,108 @@
 /* register.css */
 
+/* Style global pour le corps de la page */
 body {
     background-color: #333;
+    /* Couleur de fond gris foncé */
     color: white;
+    /* Couleur du texte en blanc */
     font-family: Arial, sans-serif;
+    /* Police de caractère utilisée */
     margin: 0;
+    /* Supprime les marges par défaut */
     padding: 0;
+    /* Supprime les padding par défaut */
     display: flex;
+    /* Utilise un modèle de boîte flex pour l'alignement */
     flex-direction: column;
+    /* Aligne les éléments en colonne */
     justify-content: center;
+    /* Centre les éléments verticalement */
     align-items: center;
+    /* Centre les éléments horizontalement */
     height: 100vh;
+    /* Hauteur de la page égale à 100% de la hauteur de la fenêtre */
 }
 
+/* Style pour le formulaire */
 form {
     background-color: #444;
+    /* Couleur de fond gris foncé */
     padding: 20px;
+    /* Ajoute un padding de 20px */
     border-radius: 10px;
+    /* Arrondit les coins du formulaire */
     text-align: center;
+    /* Centre le texte */
     max-width: 400px;
+    /* Largeur maximale de 400px */
     width: 100%;
+    /* Largeur de 100% */
 }
 
+/* Style pour les champs de texte et les champs de mot de passe */
 input[type="text"],
 input[type="password"] {
     display: block;
+    /* Affiche chaque champ comme un bloc */
     margin-bottom: 30px;
+    /* Ajoute une marge inférieure de 30px */
     color: white;
+    /* Couleur du texte */
     border-radius: 5px;
-    /* Arrondir les bords */
+    /* Arrondit les bords */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Ajouter un effet d'ombre */
+    /* Ajoute un effet d'ombre légère */
     background-color: #555;
-    /* Couleur de fond */
+    /* Couleur de fond gris foncé */
     border: none;
-    /* Supprimer la bordure par défaut */
+    /* Supprime la bordure par défaut */
     padding: 10px;
-    /* Ajouter un espacement interne */
+    /* Ajoute un espacement interne de 10px */
     margin: 0 auto 30px auto;
-    /* Centrer verticalement et horizontalement */
+    /* Centre verticalement et horizontalement avec une marge inférieure de 30px */
 }
 
+/* Style pour le champ de fichier */
 input[type="file"] {
     margin-top: 10px;
+    /* Ajoute une marge supérieure de 10px */
 }
 
+/* Style pour les boutons */
 button {
     background-color: #ff4444;
+    /* Couleur de fond rouge */
     color: white;
+    /* Couleur du texte en blanc */
     border: none;
+    /* Supprime la bordure */
     margin-top: 20px;
+    /* Ajoute une marge supérieure de 20px */
     padding: 10px 20px;
+    /* Ajoute un padding de 10px en haut/bas et 20px à gauche/droite */
     border-radius: 5px;
+    /* Arrondit les coins */
     cursor: pointer;
+    /* Change le curseur au survol */
 }
 
+/* Style pour les boutons au survol */
 button:hover {
     background-color: #ff3333;
+    /* Change la couleur de fond au survol */
 }
 
+/* Style pour les paragraphes */
 p {
     margin-top: 20px;
+    /* Ajoute une marge supérieure de 20px */
     color: #aaa;
+    /* Couleur du texte gris clair */
 }
 
+/* Style pour les liens */
 a {
     color: #fff;
+    /* Couleur du texte en blanc */
 }

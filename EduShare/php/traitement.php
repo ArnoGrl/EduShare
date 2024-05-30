@@ -1,27 +1,33 @@
 <?php
-include 'config.php';
+include 'config.php'; // Inclusion du fichier de configuration pour accéder aux variables globales et configurations.
 
+// Vérification si la méthode de requête est POST, ce qui signifie que le formulaire a été soumis.
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Récupération des données du formulaire.
     $titre = $_POST['titre'];
     $description = $_POST['description'];
-    $categorie = $_POST['categorie']; // Nouveau
-    $userId = $_POST['user_id']; // Nouveau
+    $categorie = $_POST['categorie'];
+    $userId = $_POST['user_id'];
 
+    // Normalisation du titre pour créer un nom de dossier sécurisé.
     $normalizedTitle = preg_replace('/[^a-zA-Z0-9]/', '_', strtolower($titre));
     $imagesDirectory = "../images/TUTORIEL_PICTURE/$normalizedTitle";
+
+    // Création du dossier pour stocker les images du tutoriel si ce dernier n'existe pas.
     if (!is_dir($imagesDirectory)) {
         mkdir($imagesDirectory, 0777, true);
     }
 
-    $imagePaths = [];
+    $imagePaths = []; // Tableau pour stocker les chemins des images téléchargées.
 
-    // Téléchargement de l'image principale
+    // Téléchargement de l'image principale.
     if (isset($_FILES['image_principale']) && $_FILES['image_principale']['error'] == UPLOAD_ERR_OK) {
         $imagePrincipale = $_FILES['image_principale'];
         $imagePrincipaleExtension = pathinfo($imagePrincipale['name'], PATHINFO_EXTENSION);
         $imagePrincipaleName = $normalizedTitle . '_main.' . $imagePrincipaleExtension;
         $imagePrincipalePath = $imagesDirectory . '/' . $imagePrincipaleName;
 
+        // Déplacement de l'image téléchargée vers le dossier spécifié.
         if (move_uploaded_file($imagePrincipale['tmp_name'], $imagePrincipalePath)) {
             $imagePaths[] = $imagePrincipalePath;
         } else {
@@ -31,11 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Problème de fichier reçu : Erreur " . $_FILES['image_principale']['error'] . "<br>";
     }
 
-    // Préparation des données pour l'écriture dans le fichier CSV
+    // Préparation de l'ID unique pour le tutoriel et construction de la ligne pour le fichier CSV.
     $id = uniqid();
     $ligne = "$id;$titre;$description;$imagePrincipalePath;";
 
-    // Ajout de la première étape
+    // Traitement des étapes additionnelles du tutoriel, en commençant par la première étape.
     if (isset($_POST['etape_titre'][0])) {
         $etape_titre_1 = $_POST['etape_titre'][0];
         $etape_description_1 = $_POST['etape_description'][0];
@@ -53,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Ajout des autres étapes
+    // Traitement des autres étapes du tutoriel.
     for ($i = 1; $i < count($_FILES['etape_image']['name']); $i++) {
         $etape_titre = $_POST['etape_titre'][$i];
         $etape_description = $_POST['etape_description'][$i];
@@ -62,6 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $extension = pathinfo($etape_image, PATHINFO_EXTENSION);
         $etape_image_name = $normalizedTitle . '_etape_' . ($i + 1) . '.' . $extension;
         $etape_image_path = $imagesDirectory . '/' . $etape_image_name;
+
         if (move_uploaded_file($etape_image_tmp, $etape_image_path)) {
             $imagePaths[] = $etape_image_path;
             $ligne .= "$etape_titre;$etape_description;$etape_image_path;";
@@ -70,19 +77,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Ajouter la catégorie et l'user ID à la fin de la ligne CSV
+    // Ajout des informations de catégorie et ID utilisateur à la ligne CSV.
     $ligne .= "$categorie;$userId\n";
     $csvFile = '../data/tutoriel.csv';
 
-    // Écriture dans le fichier CSV
+    // Ouverture et écriture dans le fichier CSV.
     $fichier = fopen($csvFile, "a");
     if ($fichier) {
         fwrite($fichier, $ligne);
         fclose($fichier);
 
-        // Copie des informations dans un autre fichier CSV
+        // Copie des informations dans un autre fichier CSV pour d'autres utilisations.
         copierInformationsDansAutreCSV($id, $titre, $description, $imagePrincipalePath, $imagePaths, $categorie, $userId);
 
+        // Confirmation de la soumission avec un lien de retour à la page d'accueil.
         echo "<!DOCTYPE html>
         <html lang='fr'>
         <head>
@@ -103,18 +111,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Méthode de requête non valide.";
 }
 
+// Fonction pour copier les informations dans un autre fichier CSV pour des utilisations ultérieures.
 function copierInformationsDansAutreCSV($id, $titre, $description, $imagePrincipalPath, $imagePaths, $categorie, $userId)
 {
-    // Ouvrir le fichier CSV de destination en mode écriture
     $csvFile2 = '../data/vignette.csv';
     $fichier_destination = fopen($csvFile2, "a");
-
-    // Générer l'URL
     $url = "tutoriel.php?id=$id";
-
-    // Écrire les informations dans le fichier CSV de destination
     fputcsv($fichier_destination, array($id, $titre, $description, $imagePrincipalPath, 0, $url, $categorie, $userId), ';');
-
-    // Fermer le fichier CSV de destination
     fclose($fichier_destination);
 }

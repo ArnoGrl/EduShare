@@ -1,91 +1,149 @@
+/* Style global pour le corps de la page */
 body {
     font-family: Arial, sans-serif;
+    /* Police de caractère utilisée */
     background-color: #f0f0f7;
+    /* Couleur de fond gris clair */
     margin: 0;
+    /* Supprime les marges par défaut */
     padding: 0;
+    /* Supprime les padding par défaut */
     height: 100%;
+    /* Hauteur de 100% de la page */
     display: flex;
+    /* Utilise un modèle de boîte flex pour l'alignement */
     flex-direction: column;
+    /* Aligne les éléments en colonne */
     min-height: 100vh;
+    /* Assure une hauteur minimale de 100% de la fenêtre */
 }
 
+/* Style pour l'élément html */
 html {
     height: 100%;
+    /* Hauteur de 100% de la page */
     margin: 0;
+    /* Supprime les marges par défaut */
     padding: 0;
+    /* Supprime les padding par défaut */
 }
 
+/* Style pour l'élément main */
 main {
     flex: 1;
+    /* Permet à main de prendre tout l'espace disponible */
     padding: 20px;
+    /* Ajoute un padding de 20px */
 }
 
+/* Style pour la section tutoriel */
 .tutoriel {
     background-color: white;
+    /* Couleur de fond blanc */
     color: #4b3f72;
+    /* Couleur du texte */
     padding: 20px;
+    /* Ajoute un padding de 20px */
     margin: 20px auto;
+    /* Ajoute une marge de 20px et centre le bloc */
     width: 80%;
+    /* Largeur de 80% */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Ajoute une ombre douce pour un effet de profondeur */
     border-radius: 10px;
+    /* Arrondit les coins du cadre */
     display: flex;
+    /* Utilise un modèle de boîte flex pour l'alignement */
     flex-direction: column;
+    /* Aligne les éléments en colonne */
     align-items: center;
+    /* Centre horizontalement les éléments */
 }
 
+/* Style pour les titres des tutoriels */
 .tutoriel h1,
 .tutoriel h2 {
     text-align: center;
+    /* Centre le texte horizontalement */
     color: #4b3f72;
+    /* Couleur du texte */
     margin: 20px 0;
+    /* Ajoute une marge de 20px en haut et en bas */
 }
 
+/* Style pour la description et les paragraphes des parties */
 .description,
 .part p {
     text-align: center;
+    /* Centre le texte horizontalement */
     color: #4b3f72;
+    /* Couleur du texte */
     margin: 10px 0;
+    /* Ajoute une marge de 10px en haut et en bas */
 }
 
+/* Style pour l'image principale et les autres images */
 .image-main,
 .image {
     width: 50%;
+    /* Largeur de 50% */
     height: auto;
+    /* Hauteur automatique pour conserver les proportions */
     border-radius: 10px;
+    /* Arrondit les coins de l'image */
     margin: 20px 0;
+    /* Ajoute une marge de 20px en haut et en bas */
     align-self: center;
+    /* Centre l'image horizontalement */
 }
 
+/* Style pour les parties du tutoriel */
 .part {
     display: flex;
+    /* Utilise un modèle de boîte flex pour l'alignement */
     flex-direction: column;
+    /* Aligne les éléments en colonne */
     align-items: center;
+    /* Centre horizontalement les éléments */
     width: 100%;
+    /* Largeur de 100% */
 }
 
+/* Style pour les parties gauche et droite du tutoriel */
 .part-left,
 .part-right {
     display: flex;
+    /* Utilise un modèle de boîte flex pour l'alignement */
     flex-direction: column;
+    /* Aligne les éléments en colonne */
     align-items: center;
+    /* Centre horizontalement les éléments */
     justify-content: space-between;
+    /* Espace les éléments de manière égale */
 }
 
+/* Style pour les images des parties gauche et droite */
 .part-left .image,
 .part-right .image {
     order: 2;
-    /* Ensure image is below the text */
+    /* Assure que l'image est en dessous du texte */
 }
 
+/* Style pour les descriptions des parties gauche et droite */
 .part-left .description,
 .part-right .description {
     order: 1;
-    /* Ensure description comes just after the title */
+    /* Assure que la description vient juste après le titre */
 }
 
+/* Style pour le pied de page */
 footer {
     text-align: center;
+    /* Centre le texte horizontalement */
     padding: 10px 0;
+    /* Ajoute un padding de 10px en haut et en bas */
     background-color: #2c2639;
+    /* Couleur de fond gris foncé */
     color: white;
+    /* Couleur du texte en blanc */
 }

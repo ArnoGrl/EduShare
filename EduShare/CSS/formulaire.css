@@ -1,70 +1,102 @@
+/* Style global pour le corps de la page */
 body {
     font-family: Arial, sans-serif;
+    /* Police de caractère utilisée */
     background-color: #333;
-    /* Gris foncé */
+    /* Couleur de fond gris foncé */
     margin: 0;
+    /* Supprime les marges par défaut */
     padding: 20px;
+    /* Ajoute un espacement interne de 20px */
 }
 
+/* Style pour les titres et les paragraphes */
 h1,
 h2,
 p {
     text-align: center;
+    /* Centre le texte */
     color: #fff;
+    /* Couleur du texte en blanc */
 }
 
+/* Style pour le formulaire */
 form {
     max-width: 600px;
+    /* Largeur maximale du formulaire */
     margin: 0 auto;
+    /* Centre le formulaire horizontalement */
     padding: 30px;
+    /* Ajoute un espacement interne de 30px */
     background-color: #444;
+    /* Couleur de fond gris foncé */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Ajoute une ombre légère */
     border-radius: 10px;
+    /* Arrondit les coins du formulaire */
 }
 
+/* Style pour les étiquettes des champs */
 label {
     display: block;
+    /* Affiche chaque label comme un bloc */
     margin-bottom: 8px;
+    /* Ajoute un espacement en bas de 8px */
 }
 
+/* Style pour les champs de texte et les zones de texte */
 input[type="text"],
 textarea {
     display: block;
+    /* Affiche chaque champ comme un bloc */
     margin-bottom: 30px;
+    /* Ajoute un espacement en bas de 30px */
     color: white;
+    /* Couleur du texte */
     border-radius: 5px;
-    /* Arrondir les bords */
+    /* Arrondit les bords */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Ajouter un effet d'ombre */
+    /* Ajoute un effet d'ombre légère */
     background-color: #555;
-    /* Couleur de fond */
+    /* Couleur de fond gris foncé */
     border: none;
-    /* Supprimer la bordure par défaut */
+    /* Supprime la bordure par défaut */
     padding: 10px;
-    /* Ajouter un espacement interne */
+    /* Ajoute un espacement interne de 10px */
     margin: 0 auto 30px auto;
-    /* Centrer verticalement et horizontalement */
+    /* Centre le champ verticalement et horizontalement */
     width: 100%;
-    /* Assurer une largeur de 100% */
+    /* Assure une largeur de 100% */
 }
 
+/* Style pour les boutons et les boutons de soumission */
 button,
 input[type="submit"] {
     width: 100%;
+    /* Assure une largeur de 100% */
     padding: 10px;
+    /* Ajoute un espacement interne de 10px */
     background-color: #dc3545;
-    /* Rouge */
+    /* Couleur de fond rouge */
     border: none;
+    /* Supprime la bordure */
     border-radius: 4px;
+    /* Arrondit les bords */
     color: #fff;
+    /* Couleur du texte en blanc */
     font-size: 16px;
+    /* Taille de la police */
     cursor: pointer;
+    /* Change le curseur au survol */
     margin-bottom: 10px;
+    /* Ajoute un espacement en bas de 10px */
     margin-top: 10px;
+    /* Ajoute un espacement en haut de 10px */
 }
 
+/* Style pour les boutons au survol */
 button:hover,
 input[type="submit"]:hover {
     background-color: #c82333;
-    /* Rouge foncé */
+    /* Change la couleur de fond au survol (rouge foncé) */
 }

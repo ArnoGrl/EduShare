@@ -1,100 +1,145 @@
+/* Style global pour le corps de la page */
 body {
     font-family: Arial, sans-serif;
+    /* Police de caractère utilisée */
     margin: 0;
+    /* Supprime les marges par défaut */
     padding: 0;
+    /* Supprime les padding par défaut */
     background-color: #f5f5f5;
+    /* Couleur de fond gris clair */
 }
 
 /* Styles pour la barre de navigation en haut de la page */
 .top-nav {
     display: flex;
+    /* Utilise un modèle de boîte flex pour l'alignement */
     justify-content: space-between;
+    /* Espace les éléments de manière égale */
     align-items: center;
+    /* Aligne les éléments verticalement au centre */
     background-color: #333;
+    /* Couleur de fond gris foncé */
     padding: 10px 20px;
+    /* Ajoute un padding de 10px en haut/bas et 20px à gauche/droite */
     color: white;
+    /* Couleur du texte en blanc */
     position: fixed;
+    /* Fixe la barre de navigation en haut de la page */
     width: 100%;
+    /* Largeur de 100% de la page */
     top: 0;
+    /* Positionne en haut */
     left: 0;
+    /* Positionne à gauche */
     z-index: 1000;
     /* Assure que la barre de navigation reste au-dessus des autres éléments */
 }
 
 .welcome-message {
     font-size: 1em;
+    /* Taille de la police pour le message de bienvenue */
 }
 
 .logout-button {
     color: white;
+    /* Couleur du texte en blanc */
     background-color: #f44336;
+    /* Couleur de fond rouge */
     padding: 10px 20px;
+    /* Ajoute un padding de 10px en haut/bas et 20px à gauche/droite */
     text-decoration: none;
+    /* Supprime la décoration de texte (soulignement) */
     border-radius: 10px;
+    /* Arrondit les coins */
     transition: background-color 0.3s;
+    /* Transition de 0.3s pour le changement de couleur de fond */
     border: none;
-    /* Pour un style de bouton */
+    /* Supprime la bordure */
     cursor: pointer;
-    /* Curseur de bouton */
+    /* Change le curseur au survol */
     font-size: 1em;
+    /* Taille de la police */
 }
 
 .submit-button {
     color: white;
+    /* Couleur du texte en blanc */
     background-color: #f44336;
+    /* Couleur de fond rouge */
     padding: 10px 20px;
+    /* Ajoute un padding de 10px en haut/bas et 20px à gauche/droite */
     transition: background-color 0.3s;
+    /* Transition de 0.3s pour le changement de couleur de fond */
     border-radius: 10px;
+    /* Arrondit les coins */
 }
 
+/* Styles pour les boutons au survol */
 .logout-button:hover,
 .submit-button:hover {
     background-color: #d32f2f;
+    /* Change la couleur de fond au survol (rouge foncé) */
 }
 
 .submit-container {
     display: flex;
+    /* Utilise un modèle de boîte flex pour l'alignement */
     justify-content: flex-end;
+    /* Aligne les éléments à droite */
     padding: 20px;
+    /* Ajoute un padding de 20px */
     margin-top: 20px;
+    /* Ajoute une marge supérieure de 20px */
     width: calc(100% - 40px);
+    /* Largeur calculée pour prendre en compte le padding */
     box-sizing: border-box;
+    /* Inclut le padding et la bordure dans la largeur totale */
 }
 
 /* Styles pour décaler le contenu principal pour éviter le chevauchement avec la barre de navigation */
 header,
 main {
     padding-top: 60px;
-    /* Ajuster pour correspondre à la hauteur de la barre de navigation */
+    /* Ajoute un padding supérieur de 60px pour correspondre à la hauteur de la barre de navigation */
 }
 
 header {
     background: url('/images/MAIN_PICTURE/IMAGE\ EDUSHARE\ WIZZARD.webp') no-repeat center center/cover;
+    /* Image de fond avec centrage et couverture */
     height: 1080px;
+    /* Hauteur de l'en-tête */
     display: flex;
+    /* Utilise un modèle de boîte flex pour l'alignement */
     justify-content: center;
+    /* Centre horizontalement les éléments enfants */
     align-items: center;
+    /* Centre verticalement les éléments enfants */
 }
 
 .search-container {
     width: 50%;
+    /* Largeur de 50% */
 }
 
 #search-bar {
     width: 100%;
+    /* Largeur de 100% */
     padding: 10px;
+    /* Ajoute un padding de 10px */
     font-size: 16px;
+    /* Taille de la police */
 }
 
 .tutoriel-tendance {
     background-color: white;
-    /* Fond blanc pour le cadre */
+    /* Couleur de fond blanc pour le cadre */
     color: #4b3f72;
     /* Couleur du texte changée pour une meilleure visibilité sur fond blanc */
     padding: 20px;
-    /* Garde le padding pour l'espacement interne */
+    /* Ajoute un padding de 20px */
     margin: 20px auto;
-    /* Ajoute un margin pour centrer le bloc et ajouter de l'espace autour */
+    /* Ajoute une marge de 20px et centre le bloc */
     width: 60%;
     /* Limite la largeur du bloc à 60% pour ne pas occuper toute la largeur */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -107,121 +152,162 @@ header {
     text-align: center;
     /* Centre le texte horizontalement */
     margin-top: 0;
-    /* Supprime la marge supérieure pour aligner le titre au haut du cadre si nécessaire */
+    /* Supprime la marge supérieure */
     margin-bottom: 20px;
-    /* Ajoute un peu d'espace sous le titre pour séparer du contenu suivant */
+    /* Ajoute une marge inférieure de 20px */
     color: #4b3f72;
-    /* Assure que la couleur du titre est bien visible sur le fond blanc */
+    /* Couleur du texte pour le titre */
 }
 
 .tutoriel {
     display: flex;
+    /* Utilise un modèle de boîte flex pour l'alignement */
     align-items: center;
+    /* Aligne les éléments verticalement au centre */
     margin-top: 20px;
+    /* Ajoute une marge supérieure de 20px */
 }
 
 .tutoriel img {
     width: 150px;
+    /* Largeur de l'image */
     height: 100px;
+    /* Hauteur de l'image */
     border-radius: 5px;
+    /* Arrondit les coins de l'image */
     margin-right: 20px;
+    /* Ajoute une marge à droite de 20px */
 }
 
 .tuto-info h3 {
     margin: 0;
+    /* Supprime la marge */
 }
 
 .tuto-info p {
     font-size: 14px;
+    /* Taille de la police */
 }
 
 .tuto-info a {
     text-decoration: none;
+    /* Supprime la décoration de texte (soulignement) */
     color: #cda434;
+    /* Couleur du texte */
 }
 
 .tuto-info span {
     display: block;
     /* Rend le span un bloc pour permettre le positionnement */
     text-align: right;
-    /* Aligner le texte (les étoiles) à droite */
+    /* Aligne le texte (les étoiles) à droite */
     background-color: #ffd700;
-    /* Met un fond jaune (ou toute autre couleur de votre choix) */
+    /* Couleur de fond jaune */
     padding: 5px 10px;
-    /* Ajoute un peu de padding autour des étoiles */
+    /* Ajoute un padding de 5px en haut/bas et 10px à gauche/droite */
     border-radius: 10px;
-    /* Arrondit les coins du fond */
+    /* Arrondit les coins */
     width: fit-content;
-    /* Assure que la largeur du fond correspond au contenu */
+    /* Adapte la largeur au contenu */
     margin-left: auto;
     /* Pousse le bloc vers la droite */
 }
 
 .back-to-home {
     display: inline-block;
+    /* Affiche comme un bloc en ligne */
     background-color: #b385b3;
     /* Couleur de fond violet clair */
     color: white;
+    /* Couleur du texte en blanc */
     text-decoration: none;
+    /* Supprime la décoration de texte (soulignement) */
     border-radius: 5px;
+    /* Arrondit les coins */
     transition: background-color 0.3s ease, transform 0.2s ease;
+    /* Transition pour les changements de couleur et de taille */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Ajoute une ombre douce */
     align-items: right;
     /* Aligne le bouton à droite */
     margin: 10px;
-    /* Espace autour du bouton */
+    /* Ajoute une marge de 10px autour du bouton */
 }
 
+/* Styles pour le bouton de retour au survol */
 .back-to-home:hover {
     background-color: #a074a0;
-    /* Couleur de fond au survol, un peu plus foncé */
+    /* Change la couleur de fond au survol */
 }
 
+/* Styles pour le bouton de retour lorsqu'il est actif (cliqué) */
 .back-to-home:active {
     transform: scale(0.95);
-    /* Réduit légèrement la taille du bouton quand on clique dessus */
+    /* Réduit légèrement la taille du bouton */
 }
-
 
 .back-button {
     text-decoration: none;
+    /* Supprime la décoration de texte (soulignement) */
     color: #cda434;
+    /* Couleur du texte */
     padding: 10px 20px;
+    /* Ajoute un padding de 10px en haut/bas et 20px à gauche/droite */
     border-radius: 10px;
+    /* Arrondit les coins */
     background-color: #f5f5f5;
+    /* Couleur de fond gris clair */
     transition: background-color 0.3s;
+    /* Transition pour le changement de couleur de fond */
     display: inline-block;
+    /* Affiche comme un bloc en ligne */
     margin-top: 20px;
+    /* Ajoute une marge supérieure de 20px */
 }
 
+/* Styles pour le bouton de retour au survol */
 .back-button:hover {
     background-color: #e0e0e0;
+    /* Change la couleur de fond au survol */
 }
 
 footer {
     text-align: center;
+    /* Centre le texte horizontalement */
     padding: 10px 0;
+    /* Ajoute un padding de 10px en haut/bas */
     background-color: #2c2639;
+    /* Couleur de fond gris foncé */
     color: white;
+    /* Couleur du texte en blanc */
 }
 
 .main-content {
     display: flex;
+    /* Utilise un modèle de boîte flex pour l'alignement */
     padding: 20px;
+    /* Ajoute un padding de 20px */
 }
 
 .category-menu {
     width: 25%;
+    /* Largeur de 25% */
     padding: 20px;
+    /* Ajoute un padding de 20px */
     background-color: #f8f8f8;
+    /* Couleur de fond gris très clair */
     margin-right: 20px;
+    /* Ajoute une marge à droite de 20px */
 }
 
 .category-menu ul {
     list-style-type: none;
+    /* Supprime les puces de la liste */
     padding: 0;
+    /* Supprime le padding par défaut */
 }
 
 .category-menu li {
     margin-bottom: 10px;
+    /* Ajoute une marge inférieure de 10px */
 }
